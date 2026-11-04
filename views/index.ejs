@@ -1,26 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Haikus for Mona</title>
-    <link href="/css/main.css" rel="stylesheet" type="text/css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Haikus for Mona">
-    <meta property="og:description" content="Some of the best haikus you'll ever read about our rescue dog June">
-    <meta property="og:image" content="/images/sunlight.jpg">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong Game</title>
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
-    <h1>Haikus for Mona</h1>
-    <div>
-      <% for(var i=0; i < haikus.length; i++) { %>
-        <img
-          class="mona-images"
-          src="images/<%= haikus[i].image %>" />
-        <div 
-          class="haiku-containers">
-          <p 
-            class="haikus"
-          ><%- haikus[i].text %></p>
-        </div>
-      <% } %>
+    <div class="game-shell">
+      <h1>Pong</h1>
+      <div class="scoreboard" aria-live="polite">
+        <span id="left-score">0</span>
+        <span class="divider">:</span>
+        <span id="right-score">0</span>
+      </div>
+      <canvas id="game" width="900" height="520" aria-label="Pong game"></canvas>
+      <p class="controls">Move left paddle with mouse or arrow keys ↑ / ↓</p>
     </div>
+
+    <script src="/js/pong.js"></script>
+  </body>
 </html>
