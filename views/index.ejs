@@ -1,22 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pong Game</title>
+    <meta name="theme-color" content="#090b12" />
+    <title>Pong 双人对战</title>
     <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
-    <div class="game-shell">
-      <h1>Pong</h1>
-      <div class="scoreboard" aria-live="polite">
-        <span id="left-score">0</span>
+    <main class="game-shell">
+      <header class="game-header">
+        <div>
+          <p class="eyebrow">LOCAL MULTIPLAYER</p>
+          <h1>Pong <span>双人对战</span></h1>
+        </div>
+        <button id="restart-button" class="button button-secondary" type="button">重新开始</button>
+      </header>
+
+      <section class="scoreboard" aria-label="比分" aria-live="polite">
+        <div class="player-score"><span class="player-name">玩家 1</span><span id="left-score">0</span></div>
         <span class="divider">:</span>
-        <span id="right-score">0</span>
+        <div class="player-score"><span class="player-name">玩家 2</span><span id="right-score">0</span></div>
+      </section>
+
+      <div class="board-wrap">
+        <canvas id="game" width="900" height="520" aria-label="双人 Pong 游戏场地"></canvas>
+        <div id="game-overlay" class="game-overlay">
+          <div class="overlay-card">
+            <p class="eyebrow">PONG ARENA</p>
+            <h2 id="overlay-title">准备好了吗？</h2>
+            <p id="overlay-message">先得 7 分获胜！</p>
+            <button id="start-button" class="button button-primary" type="button">开始游戏</button>
+          </div>
+        </div>
       </div>
-      <canvas id="game" width="900" height="520" aria-label="Pong game"></canvas>
-      <p class="controls">Move left paddle with mouse or arrow keys ↑ / ↓</p>
-    </div>
+
+      <footer class="game-footer">
+        <p><kbd>W</kbd> / <kbd>S</kbd> 玩家 1　 <kbd>↑</kbd> / <kbd>↓</kbd> 玩家 2</p>
+        <p class="sound-note">碰撞和得分音效会在开始游戏后启用</p>
+      </footer>
+    </main>
 
     <script src="/js/pong.js"></script>
   </body>
